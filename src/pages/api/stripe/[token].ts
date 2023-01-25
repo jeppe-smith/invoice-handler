@@ -91,9 +91,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     res.json({ received: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    res.status(500).end();
+    res.status(500).json({
+      error: error?.message ?? error,
+    });
   }
 };
 
