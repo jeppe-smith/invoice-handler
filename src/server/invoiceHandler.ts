@@ -64,7 +64,7 @@ export function createInvoiceHandler(
       amount: getExchangedAmountRounded(invoice.amount_paid, exchangeRate),
     };
 
-    await billy.post("/daybookTransactions", {
+    await billy.post("daybookTransactions", {
       json: {
         daybookTransactions: [transaction],
       },
