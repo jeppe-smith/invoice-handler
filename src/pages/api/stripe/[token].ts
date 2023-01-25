@@ -84,7 +84,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     switch (event.type) {
       case "invoice.paid":
-        invoiceHandler.handleInvoicePaid(event.data.object as Stripe.Invoice);
+        await invoiceHandler.handleInvoicePaid(
+          event.data.object as Stripe.Invoice
+        );
         break;
     }
 
